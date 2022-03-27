@@ -46,6 +46,7 @@ extension ElasticsearchService {
                 url:self.applicationPropertiesService.getProperty(propertyName: "elasticsearch.bulk.uri")!,
                 method: .POST
             )
+            
             var headers = request.headers
             if let authenticationKey = self.applicationPropertiesService.getProperty(propertyName: "elasticsearch.authentication.key") {
                 headers.add(
@@ -54,13 +55,12 @@ extension ElasticsearchService {
                 )
                 
             }
-
             headers.add(
                 name: "Content-Type",
                 value: "application/json"
             )
+            
             request.body = .string(postBody)
-            print(headers)
             httpClient.execute(request: request).whenComplete(self.onResponseComplete)
         } catch {
             print("Error: Unable to perform request")

@@ -28,10 +28,10 @@ extension ApplicationPropertiesService {
             fileName: "ApplicationProperties",
             fileExtension: "json"
         )
-        
         let localApplicationProperties = self.jsonToDictionary(
             fileName: "ApplicationProperties.json",
             fileExtension: ".local")
+            
         properties.merge(applicationProperties) { (_, newValue) in newValue }
         properties.merge(localApplicationProperties) { (_, newValue) in newValue }
     }
