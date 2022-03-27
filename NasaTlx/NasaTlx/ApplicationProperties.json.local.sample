@@ -1,3 +1,4 @@
 {
     "elasticsearch.authentication.key": "<base64 encoded basic elasticsearch_user:elasticsearch_password>"
+    "empatica.client.api.key": "<your empatica client api key>"
 }
