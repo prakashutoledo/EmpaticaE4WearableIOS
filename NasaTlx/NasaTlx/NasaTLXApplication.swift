@@ -36,9 +36,11 @@ struct NasaTLXApplication: App {
         self.taskSimulationService = TaskSimulationService.singleton
         self.webSocketService = WebSocketService.singleton
         self.applicationPropertiesService = ApplicationPropertiesService.singleton
-        self.assesmentRating = AssesmentRating()
         
+        self.assesmentRating = AssesmentRating()        
         self.applicationPropertiesService.load()
+        self.empaticaService.initialize()
+        self.empaticaService.authenticate()
         EmpaticaE4Service.currentView = "Main Window"
     }
     

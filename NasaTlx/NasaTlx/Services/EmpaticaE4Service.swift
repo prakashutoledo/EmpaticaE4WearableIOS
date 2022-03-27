@@ -82,9 +82,6 @@ class EmpaticaE4Service: NSObject, ObservableObject {
         self.startElasticsearchDisruptor = false
         
         super.init()
-        
-        self.initialize()
-        self.authenticate()
     }
 }
 
@@ -116,7 +113,7 @@ extension EmpaticaE4Service {
     private func authenticate() {
         DispatchQueue.global(qos: DispatchQoS.QoSClass.background).async {
             EmpaticaAPI.authenticate(
-                withAPIKey: NasaTLXGlobals.empaticaClientAPIKey,
+                withAPIKey: ApplicationProperties.singleton.getProperty("empatica.client.api.key")!,
                 andCompletionHandler: self.authenticationCompletionHandler
             )
         }

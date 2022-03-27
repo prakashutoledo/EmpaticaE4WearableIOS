@@ -28,11 +28,8 @@ extension WebSocketService {
         if eventLoopGroup.isEmpty {
             self.eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         }
-        
-        print(url)
-        /*
+
         try! WebSocket.connect(to: URL(string: url)!, on: self.eventLoopGroup!, onUpgrade: self.setWebSocket).wait()
-         */
     }
     
     private func setWebSocket(webSocket: WebSocket) {
