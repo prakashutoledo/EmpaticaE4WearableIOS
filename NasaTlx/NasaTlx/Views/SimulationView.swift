@@ -43,6 +43,9 @@ public struct SimulationView: View {
     @EnvironmentObject
     private var webSocketService: WebSocketService
     
+    @EnvironmentObject
+    private var applicationPropertiesService: ApplicationPropertiesService
+    
     private let zyBooksLogin = ZyBooksWebView(
         tabs: [StringPair(x: "UTOLEDO101ResearchFall2021", y: "Sign In to Zybooks")]
     )
@@ -253,7 +256,11 @@ public struct SimulationView: View {
     
     private func onSimulationViewAppear() -> Void {
         EmpaticaE4Service.currentView = "Main Window"
-        self.webSocketService.connect()
+        
+        self.webSocketService.disconnect(closeEventLoopGroup: false)
+        self.webSocketService.connect(
+            url: applicationPropertiesService.getProperty(propertyName: "webSocket.connection.uri")!
+        )
     }
     
     private func customAlertOkAction() -> Void {
@@ -273,6 +280,8 @@ public struct SimulationView: View {
         message.subjectId = EmpaticaE4Service.subjectId
         message.fromView = EmpaticaE4Service.currentView
         message.device = e4Band
+        
+        self.webSocketService.sendMessage(payload: message)
         self.isProceed = true
     }
 }

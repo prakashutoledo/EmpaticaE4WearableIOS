@@ -27,6 +27,7 @@ extension NTPSyncService {
 
 extension NTPSyncService {
     public func syncTimestamp(ntpPool: String = "pool.ntp.org") -> Void {
+        print(ntpPool)
         Clock.sync(from: ntpPool, first: self.firstSync, completion: self.completeSync)
     }
     

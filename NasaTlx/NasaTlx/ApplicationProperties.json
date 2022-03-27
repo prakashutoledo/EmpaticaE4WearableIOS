@@ -1,0 +1,5 @@
+{
+    "elasticsearch.bulk.uri": "https://search-ideaslabut-wearables-di2cqfqm4yw3ppkbokmwytm26i.us-east-2.es.amazonaws.com/_bulk",
+    "webSocket.connection.uri": "wss://2wutjv5l5m.execute-api.us-east-2.amazonaws.com/production",
+    "ntp.pool.uri": "pool.ntp.org"
+}

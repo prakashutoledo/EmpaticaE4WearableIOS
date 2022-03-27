@@ -24,6 +24,10 @@
 		768B727A25E565600076F9C4 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 768B727925E565600076F9C4 /* Slider.swift */; };
 		76973A7A27860B440012D747 /* Extension+DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76973A7927860B440012D747 /* Extension+DateFormatter.swift */; };
 		76AAD3E5278627A400C06E89 /* SerializedSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76AAD3E4278627A400C06E89 /* SerializedSwift */; };
+		76BFE6BB27F110B700DFCC63 /* ApplicationProperties.json in Resources */ = {isa = PBXBuildFile; fileRef = 76BFE6BA27F110B700DFCC63 /* ApplicationProperties.json */; };
+		76BFE6BD27F111B200DFCC63 /* ApplicationProperties.json.local in Resources */ = {isa = PBXBuildFile; fileRef = 76BFE6BC27F111B200DFCC63 /* ApplicationProperties.json.local */; };
+		76BFE6BF27F1126000DFCC63 /* ApplicationProperties.json.local.sample in Resources */ = {isa = PBXBuildFile; fileRef = 76BFE6BE27F1126000DFCC63 /* ApplicationProperties.json.local.sample */; };
+		76BFE6C127F1129D00DFCC63 /* ApplicationPropertiesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76BFE6C027F1129D00DFCC63 /* ApplicationPropertiesService.swift */; };
 		76C603FF279F29E900210105 /* AssesmentRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C603FE279F29E900210105 /* AssesmentRatingView.swift */; };
 		76C60401279F54ED00210105 /* TaskSimulationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C60400279F54ED00210105 /* TaskSimulationService.swift */; };
 		76C6040327A3281100210105 /* NavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C6040227A3281000210105 /* NavigationView.swift */; };
@@ -81,6 +85,10 @@
 		7681BD7625E7952F00150709 /* AssesmentRating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssesmentRating.swift; sourceTree = "<group>"; };
 		768B727925E565600076F9C4 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		76973A7927860B440012D747 /* Extension+DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+DateFormatter.swift"; sourceTree = "<group>"; };
+		76BFE6BA27F110B700DFCC63 /* ApplicationProperties.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ApplicationProperties.json; sourceTree = "<group>"; };
+		76BFE6BC27F111B200DFCC63 /* ApplicationProperties.json.local */ = {isa = PBXFileReference; lastKnownFileType = text; path = ApplicationProperties.json.local; sourceTree = "<group>"; };
+		76BFE6BE27F1126000DFCC63 /* ApplicationProperties.json.local.sample */ = {isa = PBXFileReference; lastKnownFileType = text; path = ApplicationProperties.json.local.sample; sourceTree = "<group>"; };
+		76BFE6C027F1129D00DFCC63 /* ApplicationPropertiesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationPropertiesService.swift; sourceTree = "<group>"; };
 		76C603FE279F29E900210105 /* AssesmentRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssesmentRatingView.swift; sourceTree = "<group>"; };
 		76C60400279F54ED00210105 /* TaskSimulationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskSimulationService.swift; sourceTree = "<group>"; };
 		76C6040227A3281000210105 /* NavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationView.swift; sourceTree = "<group>"; };
@@ -175,6 +183,9 @@
 				762CC54225D45B2F0092BF1B /* Preview Content */,
 				76610C5126692F2B00498445 /* NasaTlx-Bridging-Header.h */,
 				76DC68F2266D2764001E1F28 /* NasaTLXGlobals.swift */,
+				76BFE6BA27F110B700DFCC63 /* ApplicationProperties.json */,
+				76BFE6BC27F111B200DFCC63 /* ApplicationProperties.json.local */,
+				76BFE6BE27F1126000DFCC63 /* ApplicationProperties.json.local.sample */,
 			);
 			path = NasaTlx;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 				76CC9D65278B33FC00F59672 /* ElastisearchService.swift */,
 				76C60400279F54ED00210105 /* TaskSimulationService.swift */,
 				76C6040727A4A31F00210105 /* WebSocketService.swift */,
+				76BFE6C027F1129D00DFCC63 /* ApplicationPropertiesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -392,7 +404,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76BFE6BD27F111B200DFCC63 /* ApplicationProperties.json.local in Resources */,
+				76BFE6BF27F1126000DFCC63 /* ApplicationProperties.json.local.sample in Resources */,
 				762CC54425D45B2F0092BF1B /* Preview Assets.xcassets in Resources */,
+				76BFE6BB27F110B700DFCC63 /* ApplicationProperties.json in Resources */,
 				762CC54125D45B2F0092BF1B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,6 +438,7 @@
 				76C60401279F54ED00210105 /* TaskSimulationService.swift in Sources */,
 				76DC690D26C42F50001E1F28 /* Extension+Optional.swift in Sources */,
 				764EBBAB26C58FAD003B0039 /* Stack.swift in Sources */,
+				76BFE6C127F1129D00DFCC63 /* ApplicationPropertiesService.swift in Sources */,
 				76CC12B5279CBB6800B96D97 /* ZyBooksWebView.swift in Sources */,
 				76CC9D602789233600F59672 /* Message.swift in Sources */,
 				764EBBBB26C6D320003B0039 /* Extension+Path.swift in Sources */,

@@ -36,6 +36,9 @@ struct EmpaticaSettingsView: View {
     private var ntpService: NTPSyncService
     
     @EnvironmentObject
+    private var applicationPropertiesService: ApplicationPropertiesService
+    
+    @EnvironmentObject
     private var webSocketService: WebSocketService
     
     let mixedColorStyle = ChartStyle(backgroundColor: Color.white, accentColor: Colors.OrangeStart, secondGradientColor: Colors.GradientNeonBlue, textColor: Color.red, legendTextColor: Color.black, dropShadowColor: Colors.DarkPurple)
@@ -110,7 +113,9 @@ struct EmpaticaSettingsView: View {
     
     private func onShowSyncTimestampAlert() -> Void {
         self.isSearching.toggle()
-        self.ntpService.syncTimestamp()
+        self.ntpService.syncTimestamp(
+            ntpPool: self.applicationPropertiesService.getProperty(propertyName: "ntp.pool.uri")!
+        )
         if empaticaService.connectedDevice.isPresent {
             self.empaticaService.disconnectDevice()
         }
@@ -297,7 +302,6 @@ struct EmpaticaSettingsView: View {
         EmpaticaE4Service.showChart = true
         
         self.empaticaService.startGraphTimer()
-        self.ntpService.syncTimestamp()
         self.sendWebSocketMessage()
     }
     

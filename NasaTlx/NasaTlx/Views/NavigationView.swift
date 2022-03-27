@@ -323,6 +323,9 @@ struct DoubleNavigationView : View {
     @EnvironmentObject
     private var taskSimulationService: TaskSimulationService
     
+    @EnvironmentObject
+    private var applicationPropertiesService: ApplicationPropertiesService
+    
     @State
     private var currentView: ViewTitleMapper
 
@@ -526,7 +529,9 @@ struct DoubleNavigationView : View {
         }
         else {
             self.webSocketService.disconnect(closeEventLoopGroup: false)
-            self.webSocketService.connect()
+            self.webSocketService.connect(
+                url : self.applicationPropertiesService.getProperty(propertyName: "webSocket.connection.uri")!
+            )
             self.showTaskCompletion = true
         }
     }

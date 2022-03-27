@@ -9,14 +9,19 @@ import AsyncHTTPClient
 
 class ElasticsearchService: NSObject {
     private let httpClient: HTTPClient
+    private let applicationPropertiesService: ApplicationPropertiesService
     
-    private init(httpClient: HTTPClient) {
+    private init(httpClient: HTTPClient, applicationPropertiesService: ApplicationPropertiesService) {
         self.httpClient = httpClient
+        self.applicationPropertiesService = applicationPropertiesService
     }
 }
 
 extension ElasticsearchService {
-    public static let singleton: ElasticsearchService = ElasticsearchService(httpClient: HTTPClient(eventLoopGroupProvider: .createNew))
+    public static let singleton: ElasticsearchService = ElasticsearchService(
+        httpClient: HTTPClient(eventLoopGroupProvider: .createNew),
+        applicationPropertiesService: ApplicationPropertiesService.singleton
+    )
     private static let indexJsonFormat: String = "{\"index\":{\"_index\":\"%@\"}}"
 }
 
@@ -37,11 +42,25 @@ extension ElasticsearchService {
     
     private func bulkRequest(postBody: String) -> Void {
         do {
-            var request = try HTTPClient.Request(url: "https://search-ideaslabut-wearables-di2cqfqm4yw3ppkbokmwytm26i.us-east-2.es.amazonaws.com/_bulk", method: .POST)
+            var request = try HTTPClient.Request(
+                url:self.applicationPropertiesService.getProperty(propertyName: "elasticsearch.bulk.uri")!,
+                method: .POST
+            )
             var headers = request.headers
-            headers.add(name: "Authorization", value: "Basic aWRlYXNsYWJ1dDo5ODQ1MzE1MjE2QFBr")
-            headers.add(name: "Content-Type", value: "application/json")
+            if let authenticationKey = self.applicationPropertiesService.getProperty(propertyName: "elasticsearch.authentication.key") {
+                headers.add(
+                    name: "Authorization",
+                    value: "Basic \(authenticationKey)"
+                )
+                
+            }
+
+            headers.add(
+                name: "Content-Type",
+                value: "application/json"
+            )
             request.body = .string(postBody)
+            print(headers)
             httpClient.execute(request: request).whenComplete(self.onResponseComplete)
         } catch {
             print("Error: Unable to perform request")

@@ -24,11 +24,12 @@ extension WebSocketService {
 }
 
 extension WebSocketService {
-    public func connect(url: String = "wss://2wutjv5l5m.execute-api.us-east-2.amazonaws.com/production") {
+    public func connect(url: String) {
         if eventLoopGroup.isEmpty {
             self.eventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
         }
         
+        print(url)
         /*
         try! WebSocket.connect(to: URL(string: url)!, on: self.eventLoopGroup!, onUpgrade: self.setWebSocket).wait()
          */
