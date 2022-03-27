@@ -34,7 +34,6 @@ extension ApplicationPropertiesService {
             fileExtension: ".local")
         properties.merge(applicationProperties) { (_, newValue) in newValue }
         properties.merge(localApplicationProperties) { (_, newValue) in newValue }
-        print(properties)
     }
     
     private func jsonToDictionary(fileName: String, fileExtension: String) -> [String : String] {
