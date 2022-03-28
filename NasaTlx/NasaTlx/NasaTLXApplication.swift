@@ -37,10 +37,14 @@ struct NasaTLXApplication: App {
         self.webSocketService = WebSocketService.singleton
         self.applicationPropertiesService = ApplicationPropertiesService.singleton
         
-        self.assesmentRating = AssesmentRating()        
+        self.assesmentRating = AssesmentRating()  
+        
+        // We need to load properties from json file first before we use properties
+        // other dependencies class
         self.applicationPropertiesService.load()
         self.empaticaService.initialize()
         self.empaticaService.authenticate()
+        
         EmpaticaE4Service.currentView = "Main Window"
     }
     
