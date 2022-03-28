@@ -55,7 +55,7 @@ struct NasaTLXApplication: App {
                 .environmentObject(self.applicationPropertiesService)
             
         }
-        .onChange(of: scenePhase, perform: changeScenePhase)
+        .onChange(of: scenePhase, perform: self.changeScenePhase)
     }
     
     private func changeScenePhase(newScenePhase: ScenePhase) -> Void {
