@@ -56,16 +56,3 @@ final class CancellableSafariWebViewController : UIViewController, SFSafariViewC
         bindingMode?.wrappedValue.dismiss()
     }
 }
-
-class TestController: SFSafariViewController {
-    var getCurrentView: UIView {
-        let uiView = UIView()
-        self.view.addSubview(uiView)
-        return view
-    }
-    
-    @objc
-    func myviewTapped(_ sender: UITapGestureRecognizer) {
-        print("Tapped ")
-    }
-}
