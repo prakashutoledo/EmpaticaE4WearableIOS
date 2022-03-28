@@ -65,7 +65,12 @@ extension WebSocketService {
                 let promise = eventLoopGroup.next().makePromise(of: Void.self)
                 webSocket.send(message.toJson(), promise: promise)
                 promise.futureResult.whenComplete { result in
-                    print("Successfully sent message to the WebSocket server")
+                    switch result {
+                    case .success(_):
+                        print("Successfully sent message to the WebSocket server")
+                    case .failure(let error):
+                        print(error)
+                    }                                   
                 }
             }
         }
