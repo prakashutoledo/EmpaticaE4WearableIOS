@@ -13,8 +13,4 @@ enum NasaTLXGlobals {
     
     static let empaticaE4Settings = "Empatica E4 Settings"
     static let empaticaE4BandName = "E4BAND"
-    
-    static let awsRegion: String = "us-east-2"
-    static let awsAccount: String = "258474244230"
-    static let queueName: String = "ideaslab-ut-msband"
 }
