@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-
 public struct TappableSliderConfiguration {
     public let sliderValue: Binding<Double>
     public let valueRange: ClosedRange<Double>
