@@ -237,7 +237,6 @@ struct MainNavigationView : View {
         message.device = e4Band
 
         self.webSocketService.sendMessage(payload: message)
-
     }
     
     private func onDisappearAction() -> Void {
