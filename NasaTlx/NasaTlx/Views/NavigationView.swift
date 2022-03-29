@@ -169,16 +169,6 @@ struct MainNavigationView : View {
         }
     }
     
-    /*self.rectangle(cornerRadius: 0.0, width: width)
-            .offset(x: frame.minX + 220, y: frame.minY)
-    Picker(selection: self.$currentTab, label: Text("")) {
-        Text(currentView.y).tag(0)
-    }
-    .pickerStyle(SegmentedPickerStyle())
-    .offset(x: frame.minX + 220, y: frame.minY + 3)
-    .frame(width: 400, height: 35.0, alignment: .center)
-     */
-    
     private func backToMainAction() -> Void {
         self.mode.wrappedValue.dismiss()
         EmpaticaE4Service.currentView = "Main Window"
