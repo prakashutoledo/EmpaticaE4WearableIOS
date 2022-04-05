@@ -57,7 +57,6 @@ struct NasaTLXApplication: App {
                 .environmentObject(self.taskSimulationService)
                 .environmentObject(self.webSocketService)
                 .environmentObject(self.applicationPropertiesService)
-            
         }
         .onChange(of: scenePhase, perform: self.changeScenePhase)
     }
